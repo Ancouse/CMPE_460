@@ -53,8 +53,8 @@ class ReLU(Activation):
 class LeakyReLU(Activation):
     @staticmethod
     def _normal(x: np.ndarray):
-        return x*0.01 if x < 0 else x
+        return x if x > 0 else 0.001*x
 
     @staticmethod
     def _derivate(x: np.ndarray):
-        return 0.01 if x < 0 else 1
+        return 1 if x > 0 else 0.01
